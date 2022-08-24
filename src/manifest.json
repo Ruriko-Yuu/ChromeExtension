@@ -1,0 +1,63 @@
+{
+  "manifest_version": 3,
+  "name": "Ruriko的工具箱",
+  "description": "A chrome extension",
+  "background": {
+    "service_worker": "background.bundle.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "icons": {
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "js": ["contentScript.bundle.js"],
+      "css": ["content.styles.css"]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "bookmarks",
+    "downloads",
+    "notifications",
+    "contextMenus",
+    "unlimitedStorage",
+    "history",
+    "alarms",
+    "topSites",
+    "management",
+    "background",
+    "browsingData",
+    "idle",
+    "sessions",
+    "webRequest",
+    "webRequestBlocking",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "scripting"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self';object-src 'none'"
+  },
+  "devtools_page": "devtools.html",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content.styles.css",
+        "icon.png",
+        "contentScript.bundle",
+        "pageScript.bundle.js"
+      ],
+      "matches": ["http://*/*", "https://*/*"]
+    }
+  ]
+}

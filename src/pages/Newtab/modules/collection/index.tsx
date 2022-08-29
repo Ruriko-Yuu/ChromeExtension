@@ -67,8 +67,8 @@ class CollectionSpace extends React.Component<any> {
     collectionList: [
       {
         type: 'function',
-        icon: '../../../../../public/media/image/icon/baidu.webp',
-        title: 'Demo',
+        icon: '../../../../../public/media/image/icon/z23_2.png',
+        title: 'Azurlane',
         value: 'StatisticsSpace',
         href: '',
       },
@@ -116,13 +116,15 @@ class CollectionSpace extends React.Component<any> {
             )
           )}
         </ul>
-        {this.state.collectionActive}
         {this.state.collectionActive === 'StatisticsSpace' ? (
           <StatisticsSpace
             removeCollectionActive={this.removeCollectionActive}
           />
         ) : (
           <></>
+          // <StatisticsSpace
+          //   removeCollectionActive={this.removeCollectionActive}
+          // />
         )}
       </>
     );

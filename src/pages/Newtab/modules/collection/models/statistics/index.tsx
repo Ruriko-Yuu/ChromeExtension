@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import FLYFun from '../demo/fly/index';
+import AzurlaneChart from '../demo/azurlaneChart/index';
 import './index.scss';
 
 class StatisticsSpace extends React.Component<any, any> {
@@ -25,7 +25,7 @@ class StatisticsSpace extends React.Component<any, any> {
           >
             ✖
           </i>
-          <FLYFun />
+          <AzurlaneChart />
         </div>
       </div>
     );

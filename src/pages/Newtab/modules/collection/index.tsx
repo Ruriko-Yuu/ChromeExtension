@@ -4,7 +4,14 @@ import Sortable from 'sortablejs';
 
 import './index.scss';
 
-const defaultCollectionLinkList = [
+const defaultCollectionList = [
+  {
+    type: 'function',
+    icon: '../../../../../public/media/image/icon/z23_2.png',
+    title: 'Azurlane',
+    value: 'StatisticsSpace',
+    href: '',
+  },
   {
     type: 'link',
     icon: 'https://fgo.wiki/favicon.ico',
@@ -64,15 +71,7 @@ const defaultCollectionLinkList = [
 ];
 class CollectionSpace extends React.Component<any> {
   state = {
-    collectionList: [
-      {
-        type: 'function',
-        icon: '../../../../../public/media/image/icon/z23_2.png',
-        title: 'Azurlane',
-        value: 'StatisticsSpace',
-        href: '',
-      },
-    ],
+    collectionList: defaultCollectionList,
     collectionActive: '',
   };
   removeCollectionActive = () => {
@@ -130,33 +129,31 @@ class CollectionSpace extends React.Component<any> {
     );
   }
   componentDidMount() {
-    chrome.storage.sync.get('collectionLinkList', (v) => {
+    chrome.storage.sync.get('collectionList', (v) => {
       this.setState({
-        collectionList: [
-          ...this.state.collectionList,
-          ...(v['collectionLinkList']
-            ? v['collectionLinkList']
-            : defaultCollectionLinkList),
-        ],
+        collectionList: v['collectionList']
+          ? v['collectionList']
+          : defaultCollectionList,
       });
     });
     var el = document.getElementsByClassName(
       'collection-space'
     )[0] as HTMLElement;
+    let sortable: Sortable;
     //设置配置
     var ops = {
       animation: 300,
       //拖动结束
-      onEnd: function (evt: any) {
-        // console.log(evt);
-        //获取拖动后的排序
-        // const arr = sortable.toArray();
-        // alert(JSON.stringify(arr));
+      onEnd: (evt: any) => {
+        let collectionList = this.state.collectionList;
+        const obj = collectionList.splice(evt.oldIndex, 1);
+        collectionList.splice(evt.newIndex, 0, obj[0]);
+        console.log(collectionList);
+        chrome.storage.sync.set({ collectionList });
       },
     };
-    //初始化
     if (el !== null) {
-      const sortable = Sortable.create(el, ops);
+      sortable = Sortable.create(el, ops);
     }
   }
 }

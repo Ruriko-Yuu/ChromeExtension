@@ -3,6 +3,7 @@ $space-width: 555px;
 
 .search-space {
   // overflow: hidden;
+  display: flex;
   position: relative;
   width: $space-width;
   height: $common-height;
@@ -12,8 +13,8 @@ $space-width: 555px;
   border-radius: 20px;
 
   .engine-select {
-    position: absolute;
-    width: 55px;
+    position: relative;
+    min-width: 55px;
     height: $common-height;
     background-color: #fff;
     border-radius: 20px 0 0 20px;
@@ -50,9 +51,9 @@ $space-width: 555px;
   }
 
   input {
-    position: absolute;
     right: 0;
-    width: $space-width - 55px;
+    width: 100%;
+    padding-right: 40px;
     height: $common-height;
     background-color: rgba(255, 255, 255, .8);
     border: none;

@@ -26,8 +26,9 @@ document.addEventListener(
 );
 window.addEventListener('resize', videoAuto);
 
+videoAuto()
+
 window.onload = () => {
-  videoAuto();
   workflow.constructor.speechInteraction();
   workflow.constructor.speechInteraction('OnTimeAlarm');
 };

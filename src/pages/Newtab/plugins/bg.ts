@@ -6,6 +6,12 @@ function getStyle(ele: any, key: string) {
   }
 }
 export const videoAuto = () => {
+  if (document.getElementsByTagName('video').length === 0) {
+    setTimeout(() => {
+      videoAuto()
+    }, 5e1);
+    return
+  }
   if (
     window.innerWidth / window.innerHeight >
     parseFloat(getStyle(document.getElementsByTagName('video')[0], 'width')) /

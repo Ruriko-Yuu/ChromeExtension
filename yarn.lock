@@ -1057,6 +1057,18 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@esotericsoftware/spine-core@^4.2.7":
+  version "4.2.7"
+  resolved "https://r.cnpmjs.org/@esotericsoftware/spine-core/-/spine-core-4.2.7.tgz#cec4237f328fb93e69ac6a73f10e3d33b0fde4c0"
+  integrity sha512-C5E40MIe3xz0BNIuAlA9uISyj7JRUILLocd6AzsrxTyLXQuAOp7v1vMuaIadImtkK6dieWdLsCwrgiRkirJSTQ==
+
+"@esotericsoftware/spine-webgl@^4.2.7":
+  version "4.2.7"
+  resolved "https://r.cnpmjs.org/@esotericsoftware/spine-webgl/-/spine-webgl-4.2.7.tgz#8787d3443036d8aab428991b53b7199b9616eb9a"
+  integrity sha512-l7UA2FP28iUPloaz4tuCN5oS9Zy7nTSyK4rL1TbAHljVgw2WRAi2xP29sdjYknRal+rXqSS09fYI9KV1wnJ29A==
+  dependencies:
+    "@esotericsoftware/spine-core" "^4.2.7"
+
 "@hot-loader/react-dom@^17.0.2":
   version "17.0.2"
   resolved "https://registry.npmmirror.com/@hot-loader/react-dom/-/react-dom-17.0.2.tgz#0b24e484093e8f97eb5c72bebdda44fc20bc8400"

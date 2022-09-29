@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AudioTips from './plugins/audiotips';
 import SearchSpace from './modules/search/index';
 import CollectionSpace from './modules/collection/index';
 import { videoAuto } from './plugins/bg';
 import { docHidden, visibilityCge } from './plugins/constant';
-
+import SDKanban from './plugins/sd-kanban';
 import './Newtab.scss';
-
 const workflow: any = new AudioTips();
 let doc: any = document;
 document.addEventListener(
@@ -26,18 +25,21 @@ document.addEventListener(
 );
 window.addEventListener('resize', videoAuto);
 
-videoAuto()
-
 window.onload = () => {
   workflow.constructor.speechInteraction();
   workflow.constructor.speechInteraction('OnTimeAlarm');
 };
 
 const Newtab = () => {
+  useEffect(() => {
+    videoAuto();
+    SDKanban('/public/media/sd/chaijun/chaijun.skel');
+  }, []);
   return (
     <div className="App">
       <SearchSpace />
       <CollectionSpace />
+      <canvas id="sd-kanban" />
     </div>
   );
 };

@@ -50,13 +50,13 @@ document.addEventListener(
 function devModeOn() {
   const CSS = `
     * {
-      outline: 1px solid #6cf;
+      outline: 1px solid #6cf !important;
     }
     p,
     span,
     b,
     i {
-      outline: 1px solid #c6f;
+      outline: 1px solid #c6f !important;
     }
     svg,
     path,
@@ -64,7 +64,7 @@ function devModeOn() {
     canvas,
     ::before,
     ::after {
-      outline: 1px solid #6fc;
+      outline: 1px solid #6fc !important;
     }
     *:hover {
       outline: 2px solid #fc6;
